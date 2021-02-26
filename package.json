@@ -1,0 +1,22 @@
+{
+  "name": "climax",
+  "version": "1.0.0",
+  "description": "Verwaltungsanwendung für Kletterrouten",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "App",
+    "Kletterrouten",
+    "Verwaltung"
+  ],
+  "author": "Martin Stäbler, mstaebler@perfectblue.de",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18"
+  }
+}
