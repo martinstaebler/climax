@@ -31,3 +31,5 @@ const climbSchema = new Schema(
     },
     { collection: 'climb'}
 );
+
+module.exports = mongoose.model('climb', climbSchema);
