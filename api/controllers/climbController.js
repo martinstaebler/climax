@@ -35,7 +35,7 @@ exports.aktualisiere_climb = (req, res) => {
     );
 };
 
-exports.loesche_Climb = (req, res) => {
+exports.loesche_climb = (req, res) => {
     climb.deleteOne({ _id: req.params.climbId }, err => {
         if (err) res.semd(err);
         res.json({
