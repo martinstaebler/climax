@@ -67,7 +67,18 @@ const gradSchema = new Schema(
     { collection: 'grad'}
 );
 
+const abschnittSchema = new Schema(
+    {
+        abschnittname: {
+            type: String,
+            required: 'Name kann nicht leer bleiben'
+        }
+    },
+    { collection: 'abschnitt'}
+);
+
 module.exports = mongoose.model('climb', climbSchema);
 module.exports = mongoose.model('routenbauer', routenbauerSchema);
 module.exports = mongoose.model('sektor', sektorSchema);
 module.exports = mongoose.model('grad', gradSchema);
+module.exports = mongoose.model('abschnitt', abschnittSchema);
