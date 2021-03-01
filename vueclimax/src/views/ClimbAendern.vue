@@ -2,6 +2,7 @@
     <div class="u-full-width">
         <h3>Route ändern</h3>
         <climb-formular @createOrUpdate="createOrUpdate" :climb=this.climb></climb-formular>
+        <hr style="margin-top:5px;margin-bottom:20px">
     </div>
 </template>
 

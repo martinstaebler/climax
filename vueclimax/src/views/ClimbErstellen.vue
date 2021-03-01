@@ -2,6 +2,7 @@
     <div class="u-full-width">
         <h3>Neue Route erstellen</h3>
         <climb-formular @createOrUpdate="createOrUpdate"></climb-formular>
+        <hr style="margin-top:5px;margin-bottom:20px">
     </div>
 </template>
 
