@@ -32,4 +32,19 @@ const climbSchema = new Schema(
     { collection: 'climb'}
 );
 
+const routenbauerSchema = new Schema(
+    {
+        vorname: {
+            type: String,
+            required: 'Vorname kann nicht leer bleiben'
+        },
+        nachname: {
+            type: String,
+            required: 'Nachname kann nicht leer bleiben'
+        }
+    },
+    { collection: 'routenbauer'}
+);
+
 module.exports = mongoose.model('climb', climbSchema);
+module.exports = mongoose.model('routenbauer', routenbauerSchema);
