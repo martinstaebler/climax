@@ -23,7 +23,8 @@
             createOrUpdate: async function(climb) {
                 await api.aktualisiereClimb(climb);
                 this.flash('Climb erfolgreich aktualisiert!', 'success');
-                this.$router.push(`/climbs/${climb._id}`);
+                /*this.$router.push(`/climbs/${climb._id}`);*/
+                this.$router.push('/climbUebersicht');
             }
         },
         async mounted() {
