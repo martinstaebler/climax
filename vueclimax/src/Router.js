@@ -27,7 +27,7 @@ export default new Router({
             component: ClimbErstellen
         },
         {
-            path: '/climbUebersicht/:id',
+            path: '/climbs/:id',
             /*redirect: '/climbUebersicht'*/
             name: 'climbZeigen',
             component: ClimbZeigen

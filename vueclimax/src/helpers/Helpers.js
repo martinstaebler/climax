@@ -12,7 +12,7 @@ Vue.use(VueFlashMessage, {
 
 
 const vm = new Vue();
-const baseURL = 'http://localhost:3000/climbs'
+const baseURL = 'http://localhost:3000/climbs/'
 
 const handleError = fn => (...params) =>
     fn(...params).catch(error => {
@@ -20,22 +20,26 @@ const handleError = fn => (...params) =>
     });
 
 export const api = {
-    holeClimb: handleError(async id => {
+    leseClimb: handleError(async id => {
+        console.log("vue | leseClimb");
         const res = await axios.get(baseURL + id);
         return res.data;
     }),
  
     holeAlleClimbs: handleError(async () => {
+        console.log("vue | holeAlleClimbs");
         const res = await axios.get(baseURL);
         return res.data;
     }),
 
     loescheClimb: handleError(async id => {
+        console.log("vue | loescheClimb");
         const res = await axios.delete(baseURL + id);
         return res.data;
     }),
 
     erstelleClimb: handleError(async payload => {
+        console.log("vue | erstelleClimb");
         const res = await axios.post(baseURL, payload);
         return res.data;
     }),

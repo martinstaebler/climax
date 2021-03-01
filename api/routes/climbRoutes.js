@@ -8,7 +8,7 @@ module.exports = app => {
 
     app
         .route('/climbs/:climbId')
-        .get(climbBuilder.zeige_alle_climbs)
+        .get(climbBuilder.lese_climb)
         .put(climbBuilder.aktualisiere_climb)
         .delete(climbBuilder.loesche_climb);
 };

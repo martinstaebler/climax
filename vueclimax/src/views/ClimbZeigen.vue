@@ -1,10 +1,35 @@
 <template>
     <div class="u-full-width">
-        <h3>Route erstellt</h3>
+        <h3>Route wurde erstellt:</h3>
 
-        <div>
+        <div class="eingabefeld">
             <label for="nummer">Routennummer</label>
-            <input type="text" readonly :value="climb.nummer"/>
+            <input type="text" id="nummer" readonly :value="climb.nummer"/>
+        </div>
+
+        <div class="eingabefeld">
+            <label for="name">Routenname</label>
+            <input type="text" id="name" readonly :value="climb.name"/>
+        </div>
+
+        <div class="eingabefeld">
+            <label for="grad">Grad</label>
+            <input type="text" id="grad" readonly :value="climb.grad"/>
+        </div>
+
+        <div class="eingabefeld">
+            <label for="sektor">Sektor</label>
+            <input type="text" id="sektor" readonly :value="climb.sektor"/>
+        </div>
+
+        <div class="eingabefeld">
+            <label for="routenbauer">Routenbauer</label>
+            <input type="text" id="routenbauer" readonly :value="climb.routenbauer"/>
+        </div>
+
+        <div class="eingabefeld">
+            <label for="datum">Datum</label>
+            <input type="text" id="datum" readonly :value="climb.datum"/>
         </div>
     </div>
 
@@ -13,14 +38,15 @@
 <script>
 import { api } from '../helpers/Helpers';
     export default {
-        name: 'holeClimb',
+        name: 'show',
         data(){
             return {
                 climb: ''
             };
         },
-        async mountes() {
-            this.climb = await api.holeClimb(this.$route.params.id);
+        async mounted() {
+
+            this.climb = await api.leseClimb(this.$route.params.id);
         }
     }
 </script>
