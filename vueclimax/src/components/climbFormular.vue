@@ -52,8 +52,8 @@
                 </label>
                 <select v-model="climb.routenbauer" id="routenbauer">
                     <option value="" disabled selected hidden>Routenbauer wählen</option>
-                    <option v-for="schrauber in routenbauer" v-bind:value="schrauber.value" v-bind:key="schrauber.text">
-                        {{ schrauber.text }}
+                    <option v-for="schrauber in routenbauer2" v-bind:value="combineRoutenbauer(schrauber)" v-bind:key="schrauber.vorname">
+                        {{ combineRoutenbauer(schrauber) }}
                     </option>
                 </select>
             </div>
@@ -76,6 +76,7 @@
 
 
 <script>
+    import { api } from '../helpers/HelpersRoutenbauer';
     export default {
         name: 'climb-formular',
         props: {
@@ -97,7 +98,9 @@
 
         data() {
             return {
+
                 errorsPresent: false,
+                routenbauer2: [],
                 nummern: [
                     { text: '1.1', value: '1.1' },
                     { text: '1.2', value: '1.2' },
@@ -155,6 +158,7 @@
             };
         },
 
+
         methods:{
             onSubmit: function() {
                 if (this.climb.nummer === '' || this.climb.name === '' || this.climb.grad === '' || this.climb.sektor === '' || this.climb.routenbauer === '' || this.climb.datum === '') {
@@ -162,7 +166,16 @@
                 } else {
                     this.$emit('createOrUpdate', this.climb);
                 }                
+            },
+            combineRoutenbauer: function(schrauber) {
+                return `${schrauber.vorname} ${schrauber.nachname}`;
             }
+
+
+
+        },
+        async mounted() {
+            this.routenbauer2 = await api.holeAlleRoutenbauer();
         }
     };
 </script>
