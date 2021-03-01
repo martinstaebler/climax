@@ -52,6 +52,8 @@ export default {
             if(!sure) return;
             await api.loescheClimb(id);
             this.flash('Route erfolgreich gelöscht', 'success');
+            const neueClimbs = this.climbs.filter(climb => climb._id != id);
+            this.climbs = neueClimbs;
         }
     },
     async mounted() {
