@@ -4,7 +4,6 @@ const climb = mongoose.model('climb');
 exports.zeige_alle_climbs = (req, res) => {
     console.log("mongoose | zeige_alle_climbs");
     climb.find({}, (err, climb) => {
-        console.log("zeige_alle_climbs");
         if (err) res.send(err);
         res.json(climb);
     });
