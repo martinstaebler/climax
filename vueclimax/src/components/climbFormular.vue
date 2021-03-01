@@ -52,7 +52,7 @@
                 </label>
                 <select v-model="climb.routenbauer" id="routenbauer">
                     <option value="" disabled selected hidden>Routenbauer wählen</option>
-                    <option v-for="schrauber in routenbauer2" v-bind:value="combineRoutenbauer(schrauber)" v-bind:key="schrauber.vorname">
+                    <option v-for="schrauber in routenbauer" v-bind:value="combineRoutenbauer(schrauber)" v-bind:key="schrauber.vorname">
                         {{ combineRoutenbauer(schrauber) }}
                     </option>
                 </select>
@@ -100,7 +100,7 @@
             return {
 
                 errorsPresent: false,
-                routenbauer2: [],
+                routenbauer: [],
                 nummern: [
                     { text: '1.1', value: '1.1' },
                     { text: '1.2', value: '1.2' },
@@ -146,14 +146,6 @@
                     { text: 'Südwand', value: 'Südwand' },
                     { text: 'Innenturm 1', value: 'Innenturm 1'},
                     { text: 'Innenturm 2', value: 'Innenturm 2'}
-                ],
-                routenbauer: [
-                    { text: 'Annika Carstens', value: 'Annika Carstens'},
-                    { text: 'Andreas Häse', value: 'Andreas Häse'},
-                    { text: 'Dirk Martens-Bruhns', value: 'Dirk Martens-Bruhns'},
-                    { text: 'Erik Braasch', value: 'Erik Braasch'},
-                    { text: 'Nora Horstmann', value: 'Nora Horstmann'},
-                    { text: 'Tavor Geithe', value: 'Tavor Geithe'}
                 ]
             };
         },
@@ -175,7 +167,7 @@
 
         },
         async mounted() {
-            this.routenbauer2 = await api.holeAlleRoutenbauer();
+            this.routenbauer = await api.holeAlleRoutenbauer();
         }
     };
 </script>
