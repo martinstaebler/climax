@@ -13,6 +13,7 @@ Vue.use(VueFlashMessage, {
 
 const vm = new Vue();
 const baseURL = 'http://localhost:3000/climbs/'
+const baseURLrb = 'http://localhost:3000/routenbauers/'
 
 const handleError = fn => (...params) =>
     fn(...params).catch(error => {
@@ -46,6 +47,11 @@ export const api = {
 
     aktualisiereClimb: handleError(async payload => {
         const res = await axios.put(baseURL + payload._id, payload);
+        return res.data;
+    }),
+    holeAlleRoutenbauer: handleError(async () => {
+        console.log("vue | holeAlleRoutenbauer");
+        const res = await axios.get(baseURLrb);
         return res.data;
     })
 };

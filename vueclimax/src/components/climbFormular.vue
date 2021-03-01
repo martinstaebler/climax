@@ -76,7 +76,7 @@
 
 
 <script>
-    import { api } from '../helpers/HelpersRoutenbauer';
+    import { api } from '../helpers/Helpers';
     export default {
         name: 'climb-formular',
         props: {
