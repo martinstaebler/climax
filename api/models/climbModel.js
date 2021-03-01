@@ -46,5 +46,28 @@ const routenbauerSchema = new Schema(
     { collection: 'routenbauer'}
 );
 
+const sektorSchema = new Schema(
+    {
+        sektorname: {
+            type: String,
+            required: 'Name kann nicht leer bleiben'
+        }
+    },
+    { collection: 'sektor'}
+);
+
+
+const gradSchema = new Schema(
+    {
+        gradname: {
+            type: String,
+            required: 'Name kann nicht leer bleiben'
+        }
+    },
+    { collection: 'grad'}
+);
+
 module.exports = mongoose.model('climb', climbSchema);
 module.exports = mongoose.model('routenbauer', routenbauerSchema);
+module.exports = mongoose.model('sektor', sektorSchema);
+module.exports = mongoose.model('grad', gradSchema);

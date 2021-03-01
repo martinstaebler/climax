@@ -12,8 +12,10 @@ Vue.use(VueFlashMessage, {
 
 
 const vm = new Vue();
-const baseURL = 'http://localhost:3000/climbs/'
-const baseURLrb = 'http://localhost:3000/routenbauers/'
+const baseURL = 'http://localhost:3000/climbs/';
+const baseURLrb = 'http://localhost:3000/routenbauers/';
+const baseURLsek = 'http://localhost:3000/sektoren/';
+const baseURLgra = 'http://localhost:3000/grade/';
 
 const handleError = fn => (...params) =>
     fn(...params).catch(error => {
@@ -52,6 +54,16 @@ export const api = {
     holeAlleRoutenbauer: handleError(async () => {
         console.log("vue | holeAlleRoutenbauer");
         const res = await axios.get(baseURLrb);
+        return res.data;
+    }),
+    holeAlleSektoren: handleError(async () => {
+        console.log("vue | holeAlleSektoren");
+        const res = await axios.get(baseURLsek);
+        return res.data;
+    }),
+    holeAlleGrade: handleError(async () => {
+        console.log("vue | holeAlleGrade");
+        const res = await axios.get(baseURLgra);
         return res.data;
     })
 };

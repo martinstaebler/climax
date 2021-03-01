@@ -28,8 +28,8 @@
                 </label>
                 <select v-model="climb.grad" id="grad">
                     <option value="" disabled selected hidden>Schwierigkeitsgrad wählen</option>
-                    <option v-for="grad in grade" v-bind:value="grad.value" v-bind:key="grad.text">
-                        {{ grad.text }}
+                    <option v-for="grad in grade" v-bind:value="grad.name" v-bind:key="grad.name">
+                        {{ grad.name }}
                     </option>
                 </select>
             </div>
@@ -40,8 +40,8 @@
                 </label>
                 <select v-model="climb.sektor" id="sektor">
                     <option value="" disabled selected hidden>Sektor wählen</option>
-                    <option v-for="sektor in sektoren" v-bind:value="sektor.value" v-bind:key="sektor.text">
-                        {{ sektor.text }}
+                    <option v-for="sektor in sektoren" v-bind:value="sektor.name" v-bind:key="sektor.name">
+                        {{ sektor.name }}
                     </option>
                 </select>
             </div>
@@ -101,51 +101,13 @@
 
                 errorsPresent: false,
                 routenbauer: [],
+                sektoren: [],
+                grade: [],
                 nummern: [
-                    { text: '1.1', value: '1.1' },
-                    { text: '1.2', value: '1.2' },
-                    { text: '2.1', value: '2.1' },
-                    { text: '3.1', value: '3.1' },
-                    { text: '3.2', value: '3.2' },
-                    { text: '3.3', value: '3.3' },
-                    { text: '4.1', value: '4.1' },
-                    { text: '4.2', value: '4.2' },
-                    { text: '5.1', value: '5.1' },
-                    { text: '5.2', value: '5.2' },
-                    { text: '5.3', value: '5.3' },
-                    { text: '6.1', value: '6.1' },
-                    { text: '6.2', value: '6.2' },
-                    { text: '7.1', value: '7.1' },
-                    { text: '8.1', value: '8.1' },
-                    { text: '8.2', value: '8.2' }                
-                ],
-                grade: [
-                    { text: '3+', value: '3+' },
-                    { text: '4-', value: '4-' },
-                    { text: '4', value: '4' },
-                    { text: '4+', value: '4+' },
-                    { text: '5-', value: '5-' },
-                    { text: '5', value: '5' },
-                    { text: '5+', value: '5+' },
-                    { text: '6-', value: '6-' },
-                    { text: '6', value: '6' },
-                    { text: '6+', value: '6+' },
-                    { text: '7-', value: '7-' },
-                    { text: '7', value: '7' },
-                    { text: '7+', value: '7+' },
-                    { text: '8-', value: '8-' },
-                    { text: '8', value: '8' },
-                    { text: '8+', value: '8+' },
-                    { text: '9-', value: '9-' },
-                    { text: '9', value: '9' }
-                ],
-                sektoren: [
-                    { text: 'Westwand', value: 'Westwand' },
-                    { text: 'Ostwand', value: 'Ostwand' },
-                    { text: 'Nordwand', value: 'Nordwand' },
-                    { text: 'Südwand', value: 'Südwand' },
-                    { text: 'Innenturm 1', value: 'Innenturm 1'},
-                    { text: 'Innenturm 2', value: 'Innenturm 2'}
+                    { text: '1', value: '1' },
+                    { text: '2', value: '2' },
+                    { text: '3', value: '3' },
+                    { text: '4', value: '4' }                
                 ]
             };
         },
@@ -168,6 +130,8 @@
         },
         async mounted() {
             this.routenbauer = await api.holeAlleRoutenbauer();
+            this.sektoren = await api.holeAlleSektoren();
+            this.grade = await api.holeAlleGrade();
         }
     };
 </script>
