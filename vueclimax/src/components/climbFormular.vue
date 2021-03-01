@@ -66,7 +66,10 @@
                 <input type="date" id="datum" placeholder="Datum wählen" v-model="climb.datum" style="display:block;height:38px;padding:2px 2px;border:1px solid #d1d1d1;border-radius:4px;width:400px;box-sizing:border-box;"/>
             </div>
 
-            <button class="">Route speichern</button>
+            <button class="" style="margin-right:10px;">Route speichern</button>
+            <router-link to="/climbUebersicht" exact class="button" style="margin-right:10px;">
+                verwerfen
+            </router-link>
         </form>
     </div>
 </template>
