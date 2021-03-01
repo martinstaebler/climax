@@ -1,7 +1,7 @@
 <template>
     <div class="u-full-width">
-        <h3>Neue Route erstellen</h3>
-        <climb-formular @createOrUpdate="createOrUpdate"></climb-formular>
+        <h3>Route ändern</h3>
+        <climb-formular @createOrUpdate="createOrUpdate" :climb=this.climb></climb-formular>
     </div>
 </template>
 
@@ -27,7 +27,7 @@
             }
         },
         async mounted() {
-            this.climb = await api.getClimb(this.$route.params.id);
+            this.climb = await api.leseClimb(this.$route.params.id);
         }
     }
 </script>

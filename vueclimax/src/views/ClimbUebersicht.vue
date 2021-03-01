@@ -26,7 +26,7 @@
                     <td>{{ climb.routenbauer }}</td>
                     <td>{{ climb.datum }}</td>
                     <td>
-                        <router-link :to="{ name: 'edit', params: { id: climb._id }}"><i class="las la-2x la-edit"></i></router-link>
+                        <router-link :to="{ name: 'climbAendern', params: { id: climb._id }}"><i class="las la-2x la-edit"></i></router-link>
                     </td>
                     <td @click.prevent="onDestroy(climb._id)">
                         <a :href="`/climbs/${climb._id}`"><i class="las la-2x la-trash"></i></a>
