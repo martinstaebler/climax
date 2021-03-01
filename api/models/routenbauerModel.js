@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const {Schema} = mongoose;
 
-const schrauberSchema = new Schema(
+const routenbauerSchema = new Schema(
     {
         vorname: {
             type: String,
@@ -13,7 +13,7 @@ const schrauberSchema = new Schema(
             required: 'Nachname kann nicht leer bleiben'
         }
     },
-    { collection: 'schrauber'}
+    { collection: 'routenbauer'}
 );
 
-module.exports = mongoose.model('schrauber', schrauberSchema);
+module.exports = mongoose.model('routenbauer', routenbauerSchema);
