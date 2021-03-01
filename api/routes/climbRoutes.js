@@ -1,4 +1,5 @@
 const climbBuilder = require('../controllers/climbController');
+const routenbauerBuilder = require('../controllers/routenbauerController');
 
 module.exports = app => {
     app
@@ -11,4 +12,8 @@ module.exports = app => {
         .get(climbBuilder.lese_climb)
         .put(climbBuilder.aktualisiere_climb)
         .delete(climbBuilder.loesche_climb);
+
+    app
+        .route('/routenbauers')
+        .get(routenbauerBuilder.zeige_alle_routenbauer)
 };
