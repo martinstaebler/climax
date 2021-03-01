@@ -2,6 +2,7 @@ const climbBuilder = require('../controllers/climbController');
 const routenbauerBuilder = require('../controllers/routenbauerController');
 const sektorBuilder = require('../controllers/sektorController');
 const gradBuilder = require('../controllers/gradController');
+const abschnittBuilder = require('../controllers/abschnittController');
 
 module.exports = app => {
     app
@@ -26,4 +27,9 @@ module.exports = app => {
     app
         .route('/grade')
         .get(gradBuilder.zeige_alle_grade)
+
+        
+    app
+        .route('/abschnitte')
+        .get(abschnittBuilder.zeige_alle_abschnitte)
 };

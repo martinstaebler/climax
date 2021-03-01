@@ -7,8 +7,14 @@
                 <label for="routennummer">
                     Routennummer
                 </label>
-                <select v-model="climb.nummer" id="routennummer">
-                    <option value="" disabled selected hidden>Routennummer wählen</option>
+                <select v-model="climb.abschnitt" id="abschnitt" style="width:190px">
+                    <option value="" disabled selected hidden>Abschnitt wählen</option>
+                    <option v-for="abschnitt in abschnitte" v-bind:value="abschnitt.name" v-bind:key="abschnitt.name">
+                        {{ abschnitt.name }}
+                    </option>
+                </select><span style="margin:0 5px;">.</span>
+                <select v-model="climb.nummer" id="routennummer" style="width:190px">
+                    <option value="" disabled selected hidden>Nummer wählen</option>
                     <option v-for="nummer in nummern" v-bind:value="nummer.value" v-bind:key="nummer.text">
                         {{ nummer.text }}
                     </option>
@@ -85,6 +91,7 @@
                 required: false,
                 default: () => {
                     return {
+                        abschnitt: '',
                         nummer: '',
                         name: '',
                         grad: '',
@@ -100,15 +107,16 @@
             return {
 
                 errorsPresent: false,
-                routenbauer: [],
-                sektoren: [],
-                grade: [],
+                abschnitte: [],
                 nummern: [
                     { text: '1', value: '1' },
                     { text: '2', value: '2' },
                     { text: '3', value: '3' },
                     { text: '4', value: '4' }                
-                ]
+                ],
+                routenbauer: [],
+                sektoren: [],
+                grade: []
             };
         },
 
@@ -132,6 +140,7 @@
             this.routenbauer = await api.holeAlleRoutenbauer();
             this.sektoren = await api.holeAlleSektoren();
             this.grade = await api.holeAlleGrade();
+            this.abschnitte = await api.holeAlleAbschnitte();
         }
     };
 </script>

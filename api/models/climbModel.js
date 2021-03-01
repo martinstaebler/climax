@@ -4,6 +4,10 @@ const { Schema } = mongoose;
 
 const climbSchema = new Schema(
     {
+        abschnitt: {
+            type: String,
+            required: 'Abschnitt darf nicht leer sein'
+        },        
         nummer: {
             type: String,
             required: 'Routennummer darf nicht leer sein'

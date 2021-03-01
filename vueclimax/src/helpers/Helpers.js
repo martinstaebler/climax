@@ -16,6 +16,7 @@ const baseURL = 'http://localhost:3000/climbs/';
 const baseURLrb = 'http://localhost:3000/routenbauers/';
 const baseURLsek = 'http://localhost:3000/sektoren/';
 const baseURLgra = 'http://localhost:3000/grade/';
+const baseURLabs = 'http://localhost:3000/abschnitte/';
 
 const handleError = fn => (...params) =>
     fn(...params).catch(error => {
@@ -64,6 +65,11 @@ export const api = {
     holeAlleGrade: handleError(async () => {
         console.log("vue | holeAlleGrade");
         const res = await axios.get(baseURLgra);
+        return res.data;
+    }),
+    holeAlleAbschnitte: handleError(async () => {
+        console.log("vue | holeAlleAbschnitte");
+        const res = await axios.get(baseURLabs);
         return res.data;
     })
 };

@@ -19,7 +19,7 @@
             </thead>
             <tbody>
                 <tr v-for="(climb, i) in climbs" :key="i">
-                    <td>{{ climb.nummer }}</td>
+                    <td>{{ climb.abschnitt }}.{{ climb.nummer }}</td>
                     <td>{{ climb.name }}</td>
                     <td>{{ climb.grad }}</td>
                     <td>{{ climb.sektor }}</td>

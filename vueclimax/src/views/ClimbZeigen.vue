@@ -4,7 +4,9 @@
 
         <div class="eingabefeld">
             <label for="nummer">Routennummer</label>
-            <input type="text" id="nummer" readonly :value="climb.nummer"/>
+            <input type="text" id="abschnitt" readonly :value="climb.abschnitt" style="width:190px"/>
+            <span style="margin:0 5px;">.</span>
+            <input type="text" id="nummer" readonly :value="climb.nummer" style="width:190px"/>
         </div>
 
         <div class="eingabefeld">
