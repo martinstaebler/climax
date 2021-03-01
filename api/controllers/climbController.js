@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const climb = mongoose.model('climb');
 
 exports.zeige_alle_climbs = (req, res) => {
-    climb.find({}, (err, climbs) => {
+    climb.find({}, (err, climb) => {
         if (err) res.send(err);
-        res.json(climbs);
+        res.json(climb);
     });
 };
 
@@ -12,7 +12,7 @@ exports.erstelle_climb = (req, res) => {
     const newClimb = new climb(req.body);
     newClimb.save((err, climb) => {
         if (err) res.send(err);
-        res.json(climbs);
+        res.json(climb);
     });
 };
 
