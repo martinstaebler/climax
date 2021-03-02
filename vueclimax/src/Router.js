@@ -28,11 +28,8 @@ export default new Router({
         },
         {
             path: '/climbs/:id',
-            /*redirect: '/climbUebersicht'*/
             name: 'climbZeigen',
             component: ClimbZeigen
-            /*name: 'climbUebersicht',
-            component: ClimbUebersicht*/
         },
         {
             path: '/climbUebersicht/:id/climbAendern',
