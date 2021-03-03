@@ -23,7 +23,7 @@
 
             <div class="eingabefeld">
                 <label for="routenname">
-                    Routenname
+                    <span v-if="errorsName" class="error">&gt; </span>Routenname
                 </label>
                 <input type="text" placeholder="Gebe den Namen der Route ein" v-model="climb.name" />
             </div>
@@ -107,6 +107,7 @@
             return {
 
                 errorsPresent: false,
+                errorsName: false,
                 abschnitte: [],
                 nummern: [
                     { text: '1', value: '1' },
@@ -123,8 +124,10 @@
 
         methods:{
             onSubmit: function() {
+
                 if (this.climb.nummer === '' || this.climb.name === '' || this.climb.grad === '' || this.climb.sektor === '' || this.climb.routenbauer === '' || this.climb.datum === '') {
                     this.errorsPresent = true;
+
                 } else {
                     this.$emit('createOrUpdate', this.climb);
                 }                

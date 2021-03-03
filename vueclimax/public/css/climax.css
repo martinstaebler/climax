@@ -48,21 +48,25 @@ body {
     font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222; }
 
-label {
-
-}
-
 .eingabefeld{
   display:flex;
   align-items:center;
   margin-bottom:1.5em;
 }
 
-label {
+label, .label {
   width:150px;
 }
 
-input, select {
+input, select, .wert {
   width: 400px;
   margin-bottom:0;
+}
+
+.wert {
+  font-weight:700;
+}
+
+.error {
+  color:red;
 }

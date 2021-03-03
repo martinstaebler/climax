@@ -1,44 +1,46 @@
 <template>
     <div class="u-full-width">
-        <h3>Route wurde erstellt:</h3>
+        <h3>{{ ersetzeHeadline(climb) }}</h3>
 
         <div class="eingabefeld">
-            <label for="nummer">Routennummer</label>
-            <input type="text" id="abschnitt" readonly :value="climb.abschnitt" style="width:190px"/>
-            <span style="margin:0 5px;">.</span>
-            <input type="text" id="nummer" readonly :value="climb.nummer" style="width:190px"/>
+            <div class="label">Routennummer</div>
+            <div class="wert">{{ climb.abschnitt }} . {{ climb.nummer }}</div>
         </div>
 
         <div class="eingabefeld">
-            <label for="name">Routenname</label>
-            <input type="text" id="name" readonly :value="climb.name"/>
+            <div class="label">Routenname</div>
+            <div class="wert">{{ climb.name }}</div>            
         </div>
 
         <div class="eingabefeld">
-            <label for="grad">Grad</label>
-            <input type="text" id="grad" readonly :value="climb.grad"/>
+            <div class="label">Grad</div>
+            <div class="wert">{{ climb.grad }}</div>            
         </div>
 
         <div class="eingabefeld">
-            <label for="sektor">Sektor</label>
-            <input type="text" id="sektor" readonly :value="climb.sektor"/>
+            <div class="label">Sektor</div>
+            <div class="wert">{{ climb.sektor }}</div>            
         </div>
 
         <div class="eingabefeld">
-            <label for="routenbauer">Routenbauer</label>
-            <input type="text" id="routenbauer" readonly :value="climb.routenbauer"/>
+            <div class="label">Routenbauer</div>
+            <div class="wert">{{ climb.routenbauer }}</div>            
         </div>
 
         <div class="eingabefeld">
-            <label for="datum">Datum</label>
-            <input type="text" id="datum" readonly :value="climb.datum"/>
+            <div class="label">Datum</div>
+            <div class="wert">{{ climb.datum }}</div>            
         </div>
+
+        <img src="../../public/img/route.jpg" style="width:500px;"/>
+        <hr style="margin-top:5px;margin-top:20px;margin-bottom:20px">
     </div>
 
 </template>
 
 <script>
 import { api } from '../helpers/Helpers';
+
     export default {
         name: 'show',
         data(){
@@ -46,9 +48,15 @@ import { api } from '../helpers/Helpers';
                 climb: ''
             };
         },
+        methods:{
+            ersetzeHeadline: function(climb) {
+                return `Route "${climb.name}"`;
+            }
+        },
         async mounted() {
 
             this.climb = await api.leseClimb(this.$route.params.id);
+            
         }
     }
 </script>

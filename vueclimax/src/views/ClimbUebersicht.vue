@@ -12,6 +12,7 @@
                     <th>Routenbauer</th>
                     <th>Datum</th>
 
+                    <th></th>
                     <th><i class="edit icon"></i></th>
                     <th><i class="trash icon"></i></th>
                     <th colspan="3"></th>
@@ -25,6 +26,9 @@
                     <td>{{ climb.sektor }}</td>
                     <td>{{ climb.routenbauer }}</td>
                     <td>{{ climb.datum }}</td>
+                    <td>
+                        <router-link :to="{ name: 'climbZeigen', params: { id: climb._id }}"><i class="las la-2x la-search"></i></router-link>
+                    </td>
                     <td>
                         <router-link :to="{ name: 'climbAendern', params: { id: climb._id }}"><i class="las la-2x la-edit"></i></router-link>
                     </td>
