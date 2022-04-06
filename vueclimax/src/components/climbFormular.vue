@@ -124,7 +124,6 @@
 
         methods:{
             onSubmit: function() {
-
                 if (this.climb.nummer === '' || this.climb.name === '' || this.climb.grad === '' || this.climb.sektor === '' || this.climb.routenbauer === '' || this.climb.datum === '') {
                     this.errorsPresent = true;
 
